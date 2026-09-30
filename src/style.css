@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #5f8471;
+  --color-brand-dark: #4a6a5a;
+  --color-cream: #fbf7f1;
+  --color-sand: #f1e8dc;
+  --color-ink: #2f3a34;
+  --font-sans: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-feature-settings: "ss01"; }
+
+.chip { @apply rounded-full border border-ink/15 px-4 py-2 text-sm font-medium transition hover:border-brand; }
+.chip[aria-pressed="true"] { @apply border-brand bg-brand text-white; }
+
+.size-btn { @apply rounded-xl border border-ink/15 px-3 py-2 text-sm font-medium transition hover:border-brand; }
+.size-btn[aria-pressed="true"] { @apply border-brand bg-brand/10 text-brand-dark ring-1 ring-brand; }
+
+.swatch { @apply h-8 w-8 rounded-full border-2 border-white ring-1 ring-ink/15 transition; }
+.swatch[aria-pressed="true"] { @apply ring-2 ring-brand; }
+
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark; }
+.btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 font-semibold transition hover:bg-white; }
+
+.overlay { @apply fixed inset-0 z-50 bg-ink/40 backdrop-blur-sm; }
+.hidden-el { display: none !important; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .35s ease-out both; }
